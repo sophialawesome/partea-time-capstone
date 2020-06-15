@@ -1,0 +1,35 @@
+{
+  "users": [
+      {
+          "username": "sophia",
+          "password": "password",
+          "id": 1
+
+      }
+],
+"buddies": [
+    {
+      "name": "Kirby",
+      "animalType": "whale shark",
+      "id": 1
+    }
+  ],
+
+  "teas": [
+    {
+    "name": "Birthday Cake",
+    "type": "white tea",
+    "flavorDescription": "sweet & light",
+    "id": 1
+    }
+  ],
+
+  "themes": [
+    {
+      "type": "Celestial",
+      "id": 1
+    }
+  ]
+
+
+}
