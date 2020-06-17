@@ -4,6 +4,7 @@ import Home from "./home/Home";
 import Login from "./auth/Login"
 import PartyList from "./party/PartyList"
 //import PartyDetail from "./party/PartyDetail"
+//import BuddyList from "./buddy/BuddyList"
 
 const ApplicationViews = props => {
   const hasUser = props.hasUser;
@@ -14,8 +15,6 @@ const ApplicationViews = props => {
 
   return (
     <React.Fragment>
-      {/* <Route path="/login" component={Login} /> */}
-
       <Route
         exact
         path="/"
