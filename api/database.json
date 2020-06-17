@@ -26,10 +26,19 @@
 
   "themes": [
     {
-      "type": "Celestial",
+      "type": "Pastel Wonderland",
       "id": 1
     }
-  ]
+  ],
+"parties": [
+  {
+    "name": "Gary's Birthday Tea Party",
+    "date": "2020-06-17",
+    "themeId": 1,
+    "teaId": 1,
+    "id": 1
+  }
+]
 
 
 }
