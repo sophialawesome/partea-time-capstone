@@ -1,14 +1,29 @@
 import React from "react";
-import { withRouter } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./NavBar.css";
+// import {
+//     Collapse,
+//     Navbar,
+//     NavbarToggler,
+//     NavbarBrand,
+//     Nav,
+//     NavItem,
+//     NavLink,
+//     UncontrolledDropdown,
+//     DropdownToggle,
+//     DropdownMenu,
+//     DropdownItem,
+//     NavbarText
+//   } from 'reactstrap';
+
+
 
 const NavBar = props => {
 
     const handleLogout = () => {
-        props.clearUser();
-        props.history.push('/');
-    }
+     props.clearUser();
+     props.history.push('/');
+     }
 
     return (
         <header>
@@ -25,50 +40,31 @@ const NavBar = props => {
                         </Link>
                     </li>
                     {props.hasUser
-                        ?
-                        <li>
-                            <Link className="nav-link" to="/parties">
-                                Parties
-                        </Link>
+                        ? <li>
+                            <Link className="nav-link" to="/parties"> Parties </Link>
                         </li>
-                        : null
-                    }
-                    {props.hasUser
-                        ?
-                        <li>
-                            <Link className="nav-link" to="/buddies">
-                                Buddies
-                        </Link>
-                        </li>
-                        : null
-                    }
-                    {props.hasUser
-                        ?
-                        <li>
-                            <Link className="nav-link" to="/teas">
-                                Teas
-                        </Link>
-                        </li>
-                        : null
-                    }
-                    {props.hasUser
-                        ?
-                        <li>
-                            <Link className="nav-link" to="/themes">
-                                Themes
-                        </Link>
-                        </li>
-                        : null
-                    }
-
+                        : null}
+                    <li>
+                        <Link className="nav-link" to="/buddies"> Buddies </Link>
+                    </li>
                     {props.hasUser
                         ? <li>
-                            <span className="nav-link" onClick={handleLogout}> Logout </span>
+                            <Link className="nav-link" to="/themes"> Themes </Link>
                         </li>
-                        : <li>
+                        : null}
+                    {props.hasUser
+                        ? <li>
+                            <Link className="nav-link" to="/teas"> Teas </Link>
+                        </li>
+                        : null}
+                    {!props.hasUser
+                        ? <li>
                             <Link className="nav-link" to="/login"> Login </Link>
                         </li>
-                    }
+                        
+                    :<li>
+                        <span className="nav-link" onClick={handleLogout}> Logout </span>
+                    </li>}
                 </ul>
             </nav>
         </header>
