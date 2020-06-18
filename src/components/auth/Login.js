@@ -12,11 +12,8 @@ const Login = props => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    sessionStorage.setItem(
-      "credentials",
-      JSON.stringify(credentials)
-    );
-    props.history.push("/parties");
+    props.setUser(credentials)
+      props.history.push("/");
   }
 
   return (
@@ -37,7 +34,7 @@ const Login = props => {
           <label htmlFor="inputPassword">Password</label>
         </div>
         <button type="submit">Sign in</button>
-        New user? Register <a href="./Register.js">here</a>!
+        {/* New user? Register <a href="./Register.js">here</a>! */}
       </fieldset>
     </form>
   );

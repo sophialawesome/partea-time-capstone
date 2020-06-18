@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PartyCard from './PartyCard';
-import PartyManager from '../../modules/PartyManager';
+import PartyManager from "../modules/PartyManager";
+import PartyForm from "./PartyForm";
 
 const PartyList = props => {
   // The initial state is an empty array
@@ -10,6 +11,7 @@ const PartyList = props => {
     // After the data comes back from the API, 
     //  use the setParties function to update state
     return PartyManager.getAll().then(partiesFromAPI => {
+        console.log(partiesFromAPI)
       setParties(partiesFromAPI)
     });
   };
@@ -34,19 +36,16 @@ return (
             Create Party
         </button>
         <div className="container-cards">
-        {parties.map(party =>
+        {/* {parties.map(party =>
             <PartyCard
                 key={party.id}
                 party={party}
                 deleteParty={deleteParty} />
-        )}
+        )} */}
     </div>
     </section>
 
-
-    
 );
-
 };
 
-export default PartyList
+export default PartyList;

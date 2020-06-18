@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import PartyManager from '../../modules/PartyManager';
+import PartyManager from '../modules/PartyManager';
 import './PartyDetail.css'
 
 const PartyDetail = props => {
-  const [party, setParty] = useState({ name: "", breed: "" });
+  const [party, setParty] = useState({ name: "", date: "", theme: "", tea: "" });
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    //get(id) from AnimalManager and hang on to the data; put it into state
-    AnimalManager.get(props.animalId)
-      .then(animal => {
-        setAnimal({
-          name: animal.name,
-          breed: animal.breed
+   PartyManager.get(props.partyId)
+      .then(party => {
+        setParty({
+          name: party.name,
+          date: party.date,
+          theme: party.theme,
+          tea: party.tea
         });
         setIsLoading(false);
       });
-  }, [props.animalId]);
+  }, [props.partyId]);
   
   const handleDelete = () => {
-    //invoke the delete function in AnimalManger and re-direct to the animal list.
     setIsLoading(true);
-    AnimalManager.delete(props.animalId).then(() =>
-      props.history.push("/animals")
+    PartyManager.delete(props.partyId).then(() =>
+      props.history.push("/parties")
     );
   };
 
@@ -30,10 +30,11 @@ const PartyDetail = props => {
     <div className="card">
       <div className="card-content">
         <picture>
-          <img src={require('./dog.svg')} alt="My Dog" />
         </picture>
-        <h3>Name: <span style={{ color: 'darkslategrey' }}>{animal.name}</span></h3>
-        <p>Breed: {animal.breed}</p>
+        <h3> Name: <span style={{ color: 'darkslategrey' }}>{party.name}</span></h3>
+        <p> Date: {party.date}</p>
+        <p> Theme: {party.theme}</p>
+        <p> Tea: {party.tea} </p>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
         </button>
       </div>
@@ -41,4 +42,4 @@ const PartyDetail = props => {
   );
 }
 
-export default AnimalDetail;
+export default PartyDetail;

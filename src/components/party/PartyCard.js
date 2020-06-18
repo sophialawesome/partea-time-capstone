@@ -7,7 +7,7 @@ const PartyCard = props => {
       <div className="card-content">
        <span> {props.party.name} </span>
        <button type="button" onClick={() => props.deleteParty(props.party.id)}>Remove Party</button>
-        <Link to={`/locations/${props.party.id}`}>
+        <Link to={`/parties/${props.party.id}`}>
           <button>Details</button>
         </Link>
       </div>

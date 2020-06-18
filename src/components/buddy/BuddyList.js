@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 //import the components we will need
 import BuddyCard from './BuddyCard';
-import BuddyManager from '../../modules/BuddyManager';
-import BuddyForm from './BuddyForm';
+import BuddyManager from '../modules/BuddyManager';
 
 const BuddyList = props => {
     // The initial state is an empty array
