@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import BuddyManager from '../../modules/BuddyManager';
+import BuddyManager from '../modules/BuddyManager';
 import './BuddyDetail.css'
 
 const BuddyDetail = props => {
