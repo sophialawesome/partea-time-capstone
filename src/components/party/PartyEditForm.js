@@ -1,28 +1,40 @@
-import React, { useState } from 'react';
-import PartyManager from '../modules/PartyManager';
-import './PartyForm.css'
+import React, { useState, useEffect } from "react"
+import PartyManager from "../modules/PartyManager"
+import "./PartyForm.css"
 
-const PartyForm = props => {
-  const [party, setParty] = useState({ name: "", date: "", theme: "", tea: ""  });
+const PartyEditForm = props => {
+  const [party, setParty] = useState({ name: "",  date: "", theme: "", tea: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
-    const stateToChange = { ...party};
+    const stateToChange = { ...party };
     stateToChange[evt.target.id] = evt.target.value;
     setParty(stateToChange);
   };
 
-  const constructNewParty = evt => {
-    evt.preventDefault();
-    if (party.name === "" || party.date === "" || party.theme === "" || party.tea === "") {
-      window.alert("Please input the name of your tea party :)");
-    } else {
-      setIsLoading(true);
-      // Create the party and redirect user to party list
-      PartyManager.post(party)
-        .then(() => props.history.push("/parties"));
-    }
-  };
+  const updateExistingParty = evt => {
+    evt.preventDefault()
+    setIsLoading(true);
+
+    const editedParty = {
+      id: props.match.params.partyId,
+      name: party.name,
+      date: party.date,
+      theme: party.theme,
+      tea: party.tea
+    };
+
+    PartyManager.update(editedParty)
+      .then(() => props.history.push("/parties"))
+  }
+
+  useEffect(() => {
+    PartyManager.get(props.match.params.partyId)
+      .then(party => {
+        setParty(party);
+        setIsLoading(false);
+      });
+  }, []);
 
   return (
     <>
@@ -70,13 +82,13 @@ const PartyForm = props => {
             <button
               type="button"
               disabled={isLoading}
-              onClick={constructNewParty}
+              onClick={updateExistingParty}
             >Submit</button>
           </div>
         </fieldset>
       </form>
     </>
   );
-};
+}
 
-export default PartyForm
+export default PartyEditForm

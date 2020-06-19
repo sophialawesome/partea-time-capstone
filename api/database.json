@@ -1,44 +1,51 @@
 {
   "users": [
-      {
-          "username": "sophia",
-          "password": "password",
-          "id": 1
-
-      }
-],
-"buddies": [
+    {
+      "username": "sophia",
+      "password": "password",
+      "id": 1
+    }
+  ],
+  "buddies": [
     {
       "name": "Kirby",
       "animalType": "whale shark",
       "id": 1
+    },
+    {
+      "name": "TeddyTalk",
+      "animalType": "teddy bear",
+      "id": 2
     }
   ],
-
   "teas": [
     {
-    "name": "Birthday Cake",
-    "type": "white tea",
-    "flavorDescription": "sweet & light",
-    "id": 1
+      "name": "Birthday Cake",
+      "type": "white tea",
+      "flavorDescription": "sweet & light",
+      "id": 1
     }
   ],
-
   "themes": [
     {
       "type": "Pastel Wonderland",
       "id": 1
     }
   ],
-"parties": [
-  {
-    "name": "Gary's Birthday Tea Party",
-    "date": "2020-06-17",
-    "themeId": 1,
-    "teaId": 1,
-    "id": 1
-  }
-]
-
-
+  "parties": [
+    {
+      "name": "Gary's Birthday Tea Party",
+      "date": "2020-06-17",
+      "themeId": 1,
+      "teaId": 1,
+      "id": 1
+    },
+    {
+      "name": "My First Tea Party",
+      "date": "2020-06-20",
+      "theme": "pastel goth",
+      "tea": "matcha",
+      "id": 2
+    }
+  ]
 }

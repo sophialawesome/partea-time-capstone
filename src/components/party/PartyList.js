@@ -36,12 +36,12 @@ return (
             Create Party
         </button>
         <div className="container-cards">
-        {/* {parties.map(party =>
+         {parties.map(party =>
             <PartyCard
                 key={party.id}
                 party={party}
                 deleteParty={deleteParty} />
-        )} */}
+        )} 
     </div>
     </section>
 
