@@ -40,7 +40,10 @@ return (
             <PartyCard
                 key={party.id}
                 party={party}
-                deleteParty={deleteParty} />
+                deleteParty={deleteParty}
+                {...props} 
+                />
+                
         )} 
     </div>
     </section>

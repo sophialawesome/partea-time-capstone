@@ -3,11 +3,11 @@ import PartyManager from '../modules/PartyManager';
 import './PartyForm.css'
 
 const PartyForm = props => {
-  const [party, setParty] = useState({ name: "", date: "", theme: "", tea: ""  });
+  const [party, setParty] = useState({ name: "", date: "", theme: "", tea: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
-    const stateToChange = { ...party};
+    const stateToChange = { ...party };
     stateToChange[evt.target.id] = evt.target.value;
     setParty(stateToChange);
   };
@@ -46,6 +46,12 @@ const PartyForm = props => {
               placeholder="date"
             />
             <label htmlFor="date">Date</label>
+          
+            <label for="buddy">Buddy</label>
+            <select name="buddy" id="buddy">
+              <option value="Kirby">Kirby</option>
+              <option value="TeddyTalk">TeddyTalk</option>
+            </select>
 
             <input
               type="text"
@@ -54,18 +60,18 @@ const PartyForm = props => {
               id="theme"
               placeholder="theme"
             />
-             <label htmlFor="theme">Theme</label>
+            <label htmlFor="theme">Theme</label>
 
-             <input
+            <input
               type="text"
               required
               onChange={handleFieldChange}
               id="tea"
               placeholder="tea"
             />
-             <label htmlFor="tea">Tea</label>
+            <label htmlFor="tea">Tea</label>
           </div>
-          
+
           <div className="alignRight">
             <button
               type="button"

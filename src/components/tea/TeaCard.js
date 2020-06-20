@@ -5,7 +5,7 @@ const TeaCard = props => {
   return (
     <div className="card">
       <div className="card-content">
-       <span> {props.party.name} </span>
+       <span> {props.tea.name} </span>
        <button type="button" onClick={() => props.deleteTea(props.tea.id)}>Remove Tea</button>
         <Link to={`/teas/${props.tea.id}`}>
           <button>Details</button>

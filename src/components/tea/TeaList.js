@@ -3,6 +3,7 @@ import TeaCard from './TeaCard';
 import TeaManager from "../modules/TeaManager";
 
 
+
 const TeaList = props => {
   const [teas, setTeas] = useState([]);
 
@@ -16,29 +17,31 @@ const TeaList = props => {
     getTeas();
   }, []);
 
-//   const deleteTea = id => {
-//     TeaManager.delete(id)
-//         .then(() => TeaManager.getAll().then(setTeas));
-// };
+  const deleteTea = id => {
+    TeaManager.delete(id)
+        .then(() => TeaManager.getAll().then(setTeas));
+};
 
-// return (
-//     <section className="section-content">
-//         <button type="button"
-//             className="btn"
-//             onClick={() => {props.history.push("/parties/new") }}>
-//             Create Party
-//         </button>
-//         <div className="container-cards">
-//         {/* {parties.map(party =>
-//             <PartyCard
-//                 key={party.id}
-//                 party={party}
-//                 deleteParty={deleteParty} />
-//         )} */}
-//     </div>
-//     </section>
+return (
+    <section className="section-content">
+        <button type="button"
+            className="btn"
+            onClick={() => {props.history.push("/teas/new") }}>
+            Select Tea
+        </button>
+        <div className="container-cards">
+        {teas.map(tea =>
+            <TeaCard
+                key={tea.id}
+                tea={tea}
+                deleteTea={deleteTea} {...props}
+            />
+               
+        )}
+    </div>
+    </section>
 
-// );
+);
 };
 
 export default TeaList;

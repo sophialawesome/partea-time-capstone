@@ -16,6 +16,15 @@ export default {
         body: JSON.stringify(newParty)
     }).then(data => data.json())
 },
+update(editedParty) {
+  return fetch(`${remoteURL}/animals/${editedParty.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(editedParty)
+  }).then(data => data.json());
+},
   delete(id) {
     return fetch(`${remoteURL}/parties/${id}`, {
       method: "DELETE"

@@ -33,6 +33,7 @@ const PartyDetail = props => {
         </picture>
         <h3> Name: <span style={{ color: 'darkslategrey' }}>{party.name}</span></h3>
         <p> Date: {party.date}</p>
+        <p> Buddy: {party.buddy}</p>
         <p> Theme: {party.theme}</p>
         <p> Tea: {party.tea} </p>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
