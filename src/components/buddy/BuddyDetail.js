@@ -18,24 +18,24 @@ const BuddyDetail = props => {
       });
   }, [props.buddyId]);
   
-  const handleDelete = () => {
-    //invoke the delete function in BuddyManger and re-direct to the buddy list.
-    setIsLoading(true);
-    BuddyManager.delete(props.buddyId).then(() =>
-      props.history.push("/buddies")
-    );
-  };
+  // const handleDelete = () => {
+  //   //invoke the delete function in BuddyManger and re-direct to the buddy list.
+  //   setIsLoading(true);
+  //   BuddyManager.delete(props.buddyId).then(() =>
+  //     props.history.push("/buddies")
+  //   );
+  // };
 
   return (
     <div className="card">
       <div className="card-content">
         {/* <picture>
-          <img src={require('./dog.svg')} alt="My Dog" />
+          
         </picture> */}
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{buddy.name}</span></h3>
         <p>Animal Type: {buddy.animalType}</p>
-        <button type="button" disabled={isLoading} onClick={handleDelete}>
-        </button>
+        {/* <button type="button" disabled={isLoading} onClick={handleDelete}>
+        </button> */}
       </div>
     </div>
   );

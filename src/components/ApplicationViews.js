@@ -8,6 +8,7 @@ import BuddyDetail from "./buddy/BuddyDetail";
 import ThemeDetail from "./theme/ThemeDetail";
 import TeaDetail from "./tea/TeaDetail";
 import PartyForm from "./party/PartyForm";
+import PartyEditForm from "./party/PartyEditForm";
 import BuddyList from "./buddy/BuddyList";
 import ThemeList from "./theme/ThemeList";
 import TeaList from "./tea/TeaList";
@@ -44,6 +45,15 @@ const ApplicationViews = props => {
       <Route path="/parties/new" render={(props) => {
         return <PartyForm {...props} />
       }} />
+
+      <Route path="/parties/:partyId(\d+)/edit" render={props => {
+        if (hasUser) {
+          return <PartyEditForm {...props} />
+        } else {
+          return <Redirect to="/login" />
+        }
+      }} />
+
       <Route path="/buddies"
         render={(props) => {
           return <BuddyList />

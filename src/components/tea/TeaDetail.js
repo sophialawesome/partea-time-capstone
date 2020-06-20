@@ -33,8 +33,8 @@ const TeaDetail = props => {
         <h3> Name: <span style={{ color: 'darkslategrey' }}>{tea.name}</span></h3>
         <p>  Type: {tea.type}</p>
         <p>  Flavor Description: {tea.flavorDescription}</p>
-        {/* <button type="button" disabled={isLoading} onClick={handleDelete}>
-        </button> */}
+        <button type="button" disabled={isLoading} onClick={handleDelete}>
+        </button>
       </div>
     </div>
   );
