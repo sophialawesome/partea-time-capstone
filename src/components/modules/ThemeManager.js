@@ -16,6 +16,15 @@ export default {
         body: JSON.stringify(newTheme)
     }).then(data => data.json())
 },
+update(editedTheme) {
+    return fetch(`${remoteURL}/themes/${editedTheme.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedTheme)
+    }).then(data => data.json());
+  },
   delete(id) {
     return fetch(`${remoteURL}/themes/${id}`, {
       method: "DELETE"

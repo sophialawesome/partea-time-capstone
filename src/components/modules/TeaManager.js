@@ -16,6 +16,15 @@ export default {
         body: JSON.stringify(newTea)
     }).then(data => data.json())
 },
+update(editedTea) {
+    return fetch(`${remoteURL}/teas/${editedTea.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedTea)
+    }).then(data => data.json());
+  },
   delete(id) {
     return fetch(`${remoteURL}/teas/${id}`, {
       method: "DELETE"

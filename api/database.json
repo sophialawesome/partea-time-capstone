@@ -34,25 +34,18 @@
   ],
   "parties": [
     {
-      "name": "Gary's Birthday Tea Party",
-      "date": "2020-06-17",
-      "themeId": 1,
-      "teaId": 1,
-      "id": 1
-    },
-    {
+      "id": 1,
       "name": "My First Tea Party",
-      "date": "2020-06-20",
-      "theme": "pastel goth",
-      "tea": "matcha",
-      "id": 2
+      "date": "2020-06-25",
+      "theme": "kewl",
+      "tea": "matcha"
     },
     {
-      "name": "chicken butt",
-      "date": "2020-06-21",
-      "theme": "pastel goth",
-      "tea": "green",
-      "id": 3
+      "name": "Gary's Birthday",
+      "date": "2020-06-26",
+      "theme": "beary cool",
+      "tea": "berry ",
+      "id": 2
     }
   ]
 }

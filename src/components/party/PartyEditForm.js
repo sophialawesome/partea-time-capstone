@@ -20,6 +20,7 @@ const PartyEditForm = props => {
       id: props.match.params.partyId,
       name: party.name,
       date: party.date,
+      buddy: party.buddy,
       theme: party.theme,
       tea: party.tea
     };
@@ -58,7 +59,13 @@ const PartyEditForm = props => {
               placeholder="date"
             />
             <label htmlFor="date">Date</label>
-
+            
+            <label for="buddy">Buddy</label>
+            <select name="buddy" id="buddy">
+              <option value="Kirby">Kirby</option>
+              <option value="TeddyTalk">TeddyTalk</option>
+            </select>
+            
             <input
               type="text"
               required

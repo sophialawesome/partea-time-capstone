@@ -17,7 +17,7 @@ export default {
     }).then(data => data.json())
 },
 update(editedParty) {
-  return fetch(`${remoteURL}/animals/${editedParty.id}`, {
+  return fetch(`${remoteURL}/parties/${editedParty.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
