@@ -42,6 +42,7 @@ const ApplicationViews = props => {
         // Pass the partyId to the PartyDetailComponent
         return <PartyDetail partyId={parseInt(props.match.params.partyId)} />
       }} />
+
       <Route path="/parties/new" render={(props) => {
         return <PartyForm {...props} />
       }} />
@@ -53,7 +54,6 @@ const ApplicationViews = props => {
           return <Redirect to="/login" />
         }
       }} />
-
       <Route path="/buddies"
         render={(props) => {
           return <BuddyList />
@@ -78,8 +78,6 @@ const ApplicationViews = props => {
       <Route path="/teas/:teaId(\d+)" render={(props) => {
         return <TeaDetail teaId={parseInt(props.match.params.teaId)} />
       }} />
-
-
 
       <Route path="/login" render={props => {
         return <Login setUser={setUser}{...props} />

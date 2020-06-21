@@ -6,6 +6,10 @@ const ThemeCard = props => {
     <div className="card">
       <div className="card-content">
        <span> {props.theme.name} </span>
+       <button type="button"
+          onClick={() => props.history.push(`/themes/${props.theme.id}/edit`)}>
+          Edit
+        </button>
        <button type="button" onClick={() => props.deleteTheme(props.theme.id)}>Remove Theme</button>
         <Link to={`/themes/${props.theme.id}`}>
           <button>Details</button>

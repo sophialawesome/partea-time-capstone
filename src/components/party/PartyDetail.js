@@ -3,7 +3,7 @@ import PartyManager from '../modules/PartyManager';
 import './PartyDetail.css'
 
 const PartyDetail = props => {
-  const [party, setParty] = useState({ name: "", date: "", theme: "", tea: "" });
+  const [party, setParty] = useState({ name: "", date: "", buddy:"", theme: "", tea: "" });
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -12,6 +12,7 @@ const PartyDetail = props => {
         setParty({
           name: party.name,
           date: party.date,
+          buddy: party.buddy,
           theme: party.theme,
           tea: party.tea
         });

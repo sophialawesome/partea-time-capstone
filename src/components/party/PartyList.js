@@ -16,7 +16,7 @@ const PartyList = props => {
     });
   };
 
-  // got the locations from the API on the component's first render
+  // got the parties from the API on the component's first render
   useEffect(() => {
     getParties();
   }, []);

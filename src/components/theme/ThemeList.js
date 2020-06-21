@@ -16,29 +16,29 @@ const ThemeList = props => {
     getThemes();
   }, []);
 
-//   const deleteTea = id => {
-//     TeaManager.delete(id)
-//         .then(() => TeaManager.getAll().then(setTeas));
-// };
+  const deleteTheme = id => {
+    ThemeManager.delete(id)
+        .then(() => ThemeManager.getAll().then(setThemes));
+};
 
-// return (
-//     <section className="section-content">
-//         <button type="button"
-//             className="btn"
-//             onClick={() => {props.history.push("/parties/new") }}>
-//             Create Party
-//         </button>
-//         <div className="container-cards">
-//         {/* {parties.map(party =>
-//             <PartyCard
-//                 key={party.id}
-//                 party={party}
-//                 deleteParty={deleteParty} />
-//         )} */}
-//     </div>
-//     </section>
+return (
+    <section className="section-content">
+        <button type="button"
+            className="btn"
+            onClick={() => {props.history.push("/themes/new") }}>
+            Create Theme
+        </button>
+        <div className="container-cards">
+        {themes.map(theme =>
+            <ThemeCard
+                key={theme.id}
+                theme={theme}
+                deleteTheme={deleteTheme} />
+        )}
+    </div>
+    </section>
 
-// );
+);
 };
 
 export default ThemeList;
