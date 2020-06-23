@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import BuddyCard from './BuddyCard';
 import BuddyManager from '../modules/BuddyManager';
 
+
 const BuddyList = props => {
     // The initial state is an empty array
     const [buddies, setBuddies] = useState([]);
@@ -21,7 +22,6 @@ const BuddyList = props => {
     }, []);
 
     const deleteBuddy= id => {
-        //console.log(id)
         BuddyManager.delete(id)
             .then(() => BuddyManager.getAll().then(setBuddies));
     };

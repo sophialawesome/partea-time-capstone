@@ -3,7 +3,7 @@ import BuddyManager from '../modules/BuddyManager';
 import './BuddyDetail.css'
 
 const BuddyDetail = props => {
-  const [buddy, setBuddy] = useState({ name: "", animalType: "" });
+  const [buddy, setBuddy] = useState({ name: "", animalType: "", imgUrl: "" });
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -12,7 +12,8 @@ const BuddyDetail = props => {
       .then(buddy => {
         setBuddy({
           name: buddy.name,
-          animalType: buddy.animalType
+          animalType: buddy.animalType,
+          imgUrl: buddy.imgUrl
         });
         setIsLoading(false);
       });

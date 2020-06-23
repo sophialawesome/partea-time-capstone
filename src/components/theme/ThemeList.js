@@ -22,21 +22,23 @@ const ThemeList = props => {
 };
 
 return (
-    <section className="section-content">
-        <button type="button"
-            className="btn"
-            onClick={() => {props.history.push("/themes/new") }}>
-            Create Theme
-        </button>
-        <div className="container-cards">
-        {themes.map(theme =>
-            <ThemeCard
-                key={theme.id}
-                theme={theme}
-                deleteTheme={deleteTheme} />
-        )}
+  <section className="section-content">
+      <button type="button"
+          className="btn"
+          onClick={() => {props.history.push("/themes/new") }}>
+          Select Theme
+      </button>
+      <div className="container-cards">
+      {themes.map(theme => 
+          <ThemeCard
+              key={theme.id}
+              theme={theme}
+              deleteTheme={deleteTheme} {...props}
+          />
+             
+      )}
     </div>
-    </section>
+  </section>
 
 );
 };

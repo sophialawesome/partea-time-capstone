@@ -16,12 +16,12 @@ const ThemeDetail = props => {
       });
   }, [props.themeId]);
   
-//   const handleDelete = () => {
-//     setIsLoading(true);
-//     TeaManager.delete(props.teaId).then(() =>
-//       props.history.push("/teas")
-//     );
-//   };
+  const handleDelete = () => {
+    setIsLoading(true);
+    ThemeManager.delete(props.teaId).then(() =>
+      props.history.push("/themes")
+    );
+  };
 
   return (
     <div className="card">
@@ -29,8 +29,8 @@ const ThemeDetail = props => {
         <picture>
         </picture>
         <h3> Type: <span style={{ color: 'darkslategrey' }}>{theme.type}</span></h3>
-        {/* <button type="button" disabled={isLoading} onClick={handleDelete}>
-        </button> */}
+        <button type="button" disabled={isLoading} onClick={handleDelete}>
+        </button>
       </div>
     </div>
   );

@@ -59,3 +59,9 @@ fieldset input, fieldset button, fieldset select {
 fieldset .alignRight {
     text-align: right;
 }
+
+.checkboxes {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
