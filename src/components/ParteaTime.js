@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, Component} from "react";
 import NavBar from "./nav/NavBar";
 import ApplicationViews from "./ApplicationViews";
 import "./ParteaTime.css";
@@ -16,6 +16,9 @@ const ParteaTime = () => {
    const clearUser = () => {
    sessionStorage.clear();
    setHasUser(isAuthenticated());
+
+  
+
   }
   
   return (

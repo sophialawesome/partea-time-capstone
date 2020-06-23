@@ -5,7 +5,7 @@ const ThemeCard = props => {
   return (
     <div className="card">
       <div className="card-content">
-       <span> {props.theme.name} </span>
+       <span> {props.theme.type} </span>
        <button type="button"
           onClick={() => props.history.push(`/themes/${props.theme.id}/edit`)}>
           Edit
