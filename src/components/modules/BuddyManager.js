@@ -4,8 +4,11 @@ export default {
   get(id) {
     return fetch(`${remoteURL}/buddies/${id}`).then(result => result.json())
   },
-  getAll(id) {
-    return fetch(`${remoteURL}/buddies?buddyId=${id}`).then(result => result.json())
+  // getAll(id) {
+  //   return fetch(`${remoteURL}/buddies?buddyId=${id}`).then(result => result.json())
+  // },
+  getAll() {
+    return fetch(`${remoteURL}/buddies`).then(result => result.json())
   },
   post(newBuddy) {
     return fetch(`${remoteURL}/buddies`, {

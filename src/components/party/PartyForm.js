@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PartyManager from '../modules/PartyManager';
 import './PartyForm.css'
 import Checkbox from '../buddy/BuddyCheckbox';
+import BuddyManager from '../modules/BuddyManager';
 
 const PartyForm = props => {
   const [party, setParty] = useState({ name: "", date: "", theme: "", tea: "", partyBuddy: "" });
   const [isLoading, setIsLoading] = useState(false);
+  const [buddies, setBuddies] = useState([])
+  const [buddy1, setBuddy1] = useState(false)
+  const [buddy2, setBuddy2] = useState(false)
+  const [buddy3, setBuddy3] = useState(false)
+  const [buddy4, setBuddy4] = useState(false)
 
   const handleFieldChange = evt => {
     const stateToChange = { ...party };
@@ -26,15 +32,23 @@ const PartyForm = props => {
       PartyManager.post(party, assignedBuddy)
         .then(() => props.history.push("/parties"));
     }
-
-    
   };
+
+  useEffect(() => {
+    BuddyManager.getAll().then(buddies => {
+      let buddiesArr = buddies
+      setBuddies(buddiesArr)
+      console.log(buddiesArr);
+      
+    })
+  }, [])
 
   return (
     <>
       <form>
         <fieldset>
           <div className="formgrid">
+          <label htmlFor="name">Party Name</label>
             <input
               type="text"
               required
@@ -42,7 +56,7 @@ const PartyForm = props => {
               id="name"
               placeholder="name"
             />
-            <label htmlFor="name">Party Name</label>
+          
 
             <input
               type="date"
@@ -52,33 +66,34 @@ const PartyForm = props => {
               placeholder="date"
             />
             <label htmlFor="date">Date</label>
-
+            
+            
             <label for="buddy">Buddy</label>
-
-            {/* <select required
-              onChange={handleFieldChange}
-              name="buddy" id="buddy">
-              <option defaultValue>Select Buddy</option>
-              <option value="Kirby">Kirby</option>
-              <option value="TeddyTalk">TeddyTalk</option>
-            </select> */}
-
-            <Checkbox
-
-            />
-
-    
-
-            {/* {/* 
-            <input
-              type="text"
-              required
-              onChange={handleFieldChange}
-              id="theme"
-              placeholder="theme"
-            /> */}
-            <label htmlFor="theme">Theme</label>
-
+            <label>Kirby</label>
+            <input value={buddies[0]} type='checkbox' checked={buddy1}
+              onChange={(() => { setBuddy1(!buddy1)})} /> 
+            <label>TeddyTalk</label>
+            <input value={buddies[1]} type='checkbox' checked={buddy2} 
+              onChange={(() => { setBuddy2(!buddy2)})} /> 
+            <label>Babe</label>
+            <input value={buddies[2]} type='checkbox' checked={buddy3} 
+              onChange={(() => { setBuddy3(!buddy3)})} />
+            <label>Sir William Percy James Frogginsworth III</label>
+            <input value={buddies[3]} type='checkbox' checked={buddy4} 
+              onChange={(() => { setBuddy4(!buddy4)})} /> 
+            {/* {buddies.map(buddy => (
+              <div key={buddy.id} className='checkboxes'>
+                <label>{buddy.name}</label>
+                <input 
+                  type='checkbox' 
+                  key={buddy.id} 
+                  id={`buddy-${buddy.id}`
+                  value={buddy}
+                }></input>
+              </div>
+            ))} */}
+       
+           
             <select required
               onChange={handleFieldChange}
               name="theme" id="theme">
@@ -88,7 +103,7 @@ const PartyForm = props => {
               <option value="WinterWonderland">Winter Wonderland</option>
               <option value="TropicalParadise">Tropical Paradise</option>
             </select>
-
+            <label htmlFor="theme">Theme</label>
             {/* <input
               type="text"
               required
@@ -96,7 +111,7 @@ const PartyForm = props => {
               id="tea"
               placeholder="tea"
             /> */}
-            <label htmlFor="tea">Tea</label>
+            
 
 
             <select required
@@ -109,12 +124,15 @@ const PartyForm = props => {
               <option value="Coconutty">Coconutty</option>
               <option value="English Rose">English Rose</option>
             </select>
+            <label htmlFor="tea">Tea</label>
           </div>
           <div className="alignRight">
             <button
               type="button"
               disabled={isLoading}
-              onClick={constructNewParty}
+              onClick={() => {
+                constructNewParty()
+                }}
             >Submit</button>
           </div>
         </fieldset>
