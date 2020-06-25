@@ -5,7 +5,13 @@ import Checkbox from '../buddy/BuddyCheckbox';
 import BuddyManager from '../modules/BuddyManager';
 
 const PartyForm = props => {
-  const [party, setParty] = useState({ name: "", date: "", theme: "", tea: "", partyBuddy: "" });
+  const [party, setParty] = useState({ 
+  name: "", 
+  date: "", 
+  theme: "", 
+  tea: "", 
+  partyBuddy: "" });
+  
   const [isLoading, setIsLoading] = useState(false);
   const [buddies, setBuddies] = useState([])
   const [buddy1, setBuddy1] = useState(false)
@@ -21,7 +27,7 @@ const PartyForm = props => {
 
   const constructNewParty = evt => {
     evt.preventDefault();
-    if (party.name === "" || party.date === "" || party.theme === "" || party.tea === "") {
+    if (party.name === "" || party.date === "" || party.theme === "" || party.tea === "" || party.partyBuddy === "") {
       window.alert("Please input the name of your tea party :)");
     } else {
       setIsLoading(true);
@@ -57,7 +63,7 @@ const PartyForm = props => {
               placeholder="name"
             />
           
-
+          <label htmlFor="date">Date</label>
             <input
               type="date"
               required
@@ -65,14 +71,14 @@ const PartyForm = props => {
               id="date"
               placeholder="date"
             />
-            <label htmlFor="date">Date</label>
             
             
-            <label for="buddy">Buddy</label>
+            
+            <label for="buddy">Buddy</label> <br />
             <label>Kirby</label>
             <input value={buddies[0]} type='checkbox' checked={buddy1}
               onChange={(() => { setBuddy1(!buddy1)})} /> 
-            <label>TeddyTalk</label>
+            <label>Teddy Roosevelt</label>
             <input value={buddies[1]} type='checkbox' checked={buddy2} 
               onChange={(() => { setBuddy2(!buddy2)})} /> 
             <label>Babe</label>
@@ -93,7 +99,7 @@ const PartyForm = props => {
               </div>
             ))} */}
        
-           
+            <label htmlFor="theme">Theme</label>
             <select required
               onChange={handleFieldChange}
               name="theme" id="theme">
@@ -103,7 +109,7 @@ const PartyForm = props => {
               <option value="WinterWonderland">Winter Wonderland</option>
               <option value="TropicalParadise">Tropical Paradise</option>
             </select>
-            <label htmlFor="theme">Theme</label>
+            
             {/* <input
               type="text"
               required
@@ -113,7 +119,7 @@ const PartyForm = props => {
             /> */}
             
 
-
+            <label htmlFor="tea">Tea  </label>
             <select required
               onChange={handleFieldChange}
               name="tea" id="tea">
@@ -124,7 +130,7 @@ const PartyForm = props => {
               <option value="Coconutty">Coconutty</option>
               <option value="English Rose">English Rose</option>
             </select>
-            <label htmlFor="tea">Tea</label>
+          
           </div>
           <div className="alignRight">
             <button

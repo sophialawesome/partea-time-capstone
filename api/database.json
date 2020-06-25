@@ -19,7 +19,7 @@
       "id": 1
     },
     {
-      "name": "TeddyTalk",
+      "name": "Teddy Roosevelt",
       "animalType": "teddy bear",
       "id": 2
     },
@@ -50,17 +50,26 @@
     {
       "name": "Chai",
       "type": "black tea",
-      "flavorDescription": "sweet, spicy, & cozy. do or do not. there is no chai"
+      "flavorDescription": "sweet, spicy, & cozy. do or do not. there is no chai",
+      "id": 3
     },
     {
       "name": "Coconutty",
       "type": "red tea",
-      "flavorDescription": "hint of coconut, mild, & smooth"
+      "flavorDescription": "hint of coconut, mellow, & smooth",
+      "id": 4
     },
     {
       "name": "English Rose",
       "type": "earl grey",
-      "flavorDescription": "black tea swirled with flavors of lavender and rose"
+      "flavorDescription": "black tea swirled with flavors of lavender and rose",
+      "id": 5
+    },
+    {
+      "name": "Beary Delicious",
+      "type": "herbal tea",
+      "flavorDescription": "sweet and slightly tarted, packed with blackberry and strawberry essences",
+      "id": 6
     }
   ],
   "themes": [
@@ -79,21 +88,28 @@
     {
       "type": "Tropical Paradise",
       "id": 4
+    },
+    {
+      "type": "Beary Fun",
+      "id": 5
+    },
+    {
+      "type": "Underwater Escape",
+      "id": 6
+    },
+
+    {
+      "type": "Rose Garden",
+      "id": 7
     }
   ],
   "parties": [
-    {
-      "name": "Gary's Birthday",
-      "date": "2020-06-22",
-      "themeId": 1,
-      "teaId": 1,
-      "id": 1
-    },
     {
       "name": "My First Tea Party",
       "date": "2020-06-30",
       "theme": "beary cool",
       "tea": "red",
+      "userId": 1,
       "id": 2
     },
     {
@@ -101,6 +117,7 @@
       "date": "2020-06-26",
       "theme": "cool dude",
       "tea": "green",
+      "userId": 2,
       "id": 3
     },
     {
@@ -108,6 +125,7 @@
       "date": "2020-06-25",
       "theme": "cool dude",
       "tea": "green",
+      "userId": 1,
       "id": 4
     },
     {
@@ -115,20 +133,12 @@
       "name": "Dance Partea",
       "date": "2020-06-27",
       "theme": "Winter Wonderland",
-      "tea": "English Rose"
+      "tea": "English Rose",
+      "userId": 2
     }
+   
   ],
   "partyBuddies": [
-    {
-      "buddyId": 1,
-      "partyId": 1,
-      "id": 1
-    },
-    {
-      "buddyId": 2,
-      "partyId": 1,
-      "id": 2
-    },
     {
       "buddyId": 3,
       "partyId": 2,

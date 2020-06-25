@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PartyCard from './PartyCard';
 import PartyManager from "../modules/PartyManager";
+import UserManager from "../modules/user/UserManager";
 import PartyForm from "./PartyForm";
 
 const PartyList = props => {
   // The initial state is an empty array
   const [parties, setParties] = useState([]);
-
+  const userId = JSON.parse(sessionStorage.credentials);
+  const getUserParties = UserManager.getUserParties;
   const getParties = () => {
     // After the data comes back from the API, 
     //  use the setParties function to update state
@@ -18,7 +20,8 @@ const PartyList = props => {
 
   // got the parties from the API on the component's first render
   useEffect(() => {
-    getParties();
+    getUserParties(userId)
+    .then(user => setParties(user.parties));
   }, []);
 
   const deleteParty = id => {

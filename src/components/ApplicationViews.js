@@ -12,6 +12,7 @@ import PartyEditForm from "./party/PartyEditForm";
 import BuddyList from "./buddy/BuddyList";
 import ThemeList from "./theme/ThemeList";
 import TeaList from "./tea/TeaList";
+import RegisterFrom from "./auth/RegisterForm";
 
 const ApplicationViews = props => {
   const hasUser = props.hasUser;
@@ -82,6 +83,9 @@ const ApplicationViews = props => {
       <Route path="/login" render={props => {
         return <Login setUser={setUser}{...props} />
       }} />
+
+      <Route exact path="/register">
+      </Route>
     </React.Fragment>
 
   );
