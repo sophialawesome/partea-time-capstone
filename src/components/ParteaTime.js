@@ -24,7 +24,7 @@ const ParteaTime = () => {
   return (
     <>
        <NavBar hasUser={hasUser} clearUser={clearUser}/>
-      <ApplicationViews hasUser={hasUser} setUser={setUser} /> 
+       <ApplicationViews hasUser={hasUser} setUser={setUser} /> 
     
     </>
   );

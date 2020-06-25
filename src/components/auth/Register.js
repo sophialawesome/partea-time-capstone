@@ -1,8 +1,12 @@
 import React, { useState } from "react"
+import UserManager from "../modules/user/UserManager";
 
 
-const Register= props => {
+
+const Register = props => {
   const [credentials, setCredentials] = useState({ username: "", password: "" });
+
+  const [isLoading, setIsLoading] = useState(false);
 
   // Update state whenever an input field is edited
   const handleFieldChange = (evt) => {
@@ -11,17 +15,24 @@ const Register= props => {
     setCredentials(stateToChange);
   };
 
-  const handleRegister = (e) => {
+  const createRegisteredUser = (e) => {
     e.preventDefault();
-    sessionStorage.setItem(
-      "credentials",
-      JSON.stringify(credentials)
-    );
-    props.history.register(user);
+
+    if (credentials.username === "" || credentials.password === "") {
+      window.alert("Remember to fill out the form!")
+    }
+    else {
+      setIsLoading(true);
+      UserManager.post(credentials)
+        .then(props.setUser(credentials))
+      props.history.push("/");
+    }
+
+
   }
 
   return (
-    <form onSubmit={handleRegister}>
+    <form onSubmit={handleFieldChange}>
       <fieldset>
         <h3>Create a new account here!</h3>
         <div className="formgrid">
@@ -37,10 +48,11 @@ const Register= props => {
             required="" />
           <label htmlFor="inputPassword">Password</label>
         </div>
-        <button type="register">Create new account</button>
+        <button type="submit" disabled={isLoading} onClick={createRegisteredUser}>Create new account</button>
       </fieldset>
     </form>
   );
 };
 
 export default Register;
+

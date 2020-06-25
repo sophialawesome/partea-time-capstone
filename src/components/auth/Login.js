@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import UserManager from "../modules/user/UserManager"
 
 const Login = props => {
   const [credentials, setCredentials] = useState({ username: "", password: "" });
@@ -10,14 +11,24 @@ const Login = props => {
     setCredentials(stateToChange);
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    props.setUser(credentials)
+  const handleLogin = () => {
+    //e.preventDefault();
+    props.setUser(credentials.id)
       props.history.push("/");
+  }
+  
+  const setUserId = (event) => {
+    event.preventDefault();
+    UserManager.get(credentials.username)
+    .then(userInfo => {credentials.id = userInfo[0].id
+    handleLogin();
+  })
+   
+   
   }
 
   return (
-    <form onSubmit={handleLogin}>
+    <form onSubmit={setUserId}>
       <fieldset>
         <h3>Please sign in</h3>
         <div className="formgrid">
@@ -34,7 +45,7 @@ const Login = props => {
           <label htmlFor="inputPassword">Password</label>
         </div>
         <button type="submit">Sign in</button>
-        {/* New user? Register <a href="./Register.js">here</a>! */}
+        New user? Register <a href="./Register.js">here</a>!
       </fieldset>
     </form>
   );
